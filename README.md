@@ -14,7 +14,7 @@ of application. Animation are done using Animate.css library and Vue inbuilt cla
 - State Management : VUEX
 - API : Github API
 
-### Techaways
+### Takeaways
 
 - Must have made different components for different sections of page to avoid cluttering of data
 - Different components wouldve organized the methods and computed properties
