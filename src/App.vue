@@ -1,30 +1,71 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <div class="logo">
+      <p class="text">Github Tracker</p>
+      <img src="@/assets/timeline.png" alt="logo" />
+    </div>
+    <div class="links">
+      <router-link to="/">Home</router-link>
+      <router-link to="/timeline">Tracker</router-link>
+    </div>
   </div>
-  <router-view/>
+  <router-view v-slot="{ Component, route }">
+    <transition
+      :enter-active-class="route.meta.enterClass"
+      :leave-active-class="route.meta.leaveClass"
+    >
+      <component :is="Component" />
+    </transition>
+  </router-view>
 </template>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  width: 100%;
+  height: 100%;
 }
 
 #nav {
-  padding: 30px;
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  padding: 30px 100px;
+  border-bottom: 1px solid lightgray;
+}
+
+#nav .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#nav .logo p {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+#nav .logo img {
+  margin-left: 20px;
+  height: 50px;
 }
 
 #nav a {
-  font-weight: bold;
-  color: #2c3e50;
+  font-weight: 400;
+  font-size: 20px;
+  color: #fff;
+  opacity: 0.8;
+  text-decoration: none;
+  margin: 0 50px;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  font-weight: 500;
+  color: #fff;
+  opacity: 1;
 }
 </style>
